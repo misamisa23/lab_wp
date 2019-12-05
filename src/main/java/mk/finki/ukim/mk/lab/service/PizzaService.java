@@ -8,4 +8,12 @@ import java.util.List;
 public interface PizzaService {
     @Listen
     List<Pizza> listPizzas();
+
+    Pizza postPizza(Pizza pizza);
+
+    Pizza putPizza(String id, Pizza pizza);
+
+    Boolean deletePizza(String id);
+
+    Pizza getPizzaById(String id);
 }
