@@ -11,7 +11,7 @@ VALUES
 ('Parmesan', 0.6, false, true),
 ('Bacon', 0.6, false, true),
 ('Herbs', 0.6, false, true),
-('Tomato sauce', 0.4, false, true),
+('Tomato sauce', 0.4, true, true),
 ('Eggs', 0.6, false, true);
 
 INSERT INTO

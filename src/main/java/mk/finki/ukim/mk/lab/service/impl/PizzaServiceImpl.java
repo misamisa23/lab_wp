@@ -1,12 +1,12 @@
 package mk.finki.ukim.mk.lab.service.impl;
 
-import mk.finki.ukim.mk.lab.listener.Listen;
-import mk.finki.ukim.mk.lab.model.Ingredient;
 import mk.finki.ukim.mk.lab.model.Pizza;
+import mk.finki.ukim.mk.lab.model.exceptions.InvalidPizzaException;
 import mk.finki.ukim.mk.lab.repository.PizzaRepository;
 import mk.finki.ukim.mk.lab.service.PizzaService;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -14,6 +14,7 @@ public class PizzaServiceImpl implements PizzaService {
     private PizzaRepository repo;
 
     public PizzaServiceImpl(PizzaRepository repo){
+
         this.repo = repo;
     }
 
@@ -44,7 +45,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public Pizza getPizzaById(String id) {
-        return repo.findById(id).get();
+        return repo.findById(id).orElseThrow(() -> new InvalidPizzaException("No such Pizza"));
     }
 
 

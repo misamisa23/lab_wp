@@ -1,6 +1,7 @@
 package mk.finki.ukim.mk.lab.service.impl;
 
 import mk.finki.ukim.mk.lab.model.Ingredient;
+import mk.finki.ukim.mk.lab.model.exceptions.InvalidSpicyCount;
 import mk.finki.ukim.mk.lab.repository.IngredientRepository;
 import mk.finki.ukim.mk.lab.service.IngredientService;
 import org.springframework.data.domain.Page;
@@ -20,7 +21,9 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient postIngredient(Ingredient ingredient) {
-
+    if (repo.countIngredientBySpicyTrue() == 3) {
+    throw new InvalidSpicyCount("No more spicy things allowed");
+    }
         return repo.saveAndFlush(ingredient);
 
     }
