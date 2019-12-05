@@ -3,6 +3,7 @@ package mk.finki.ukim.mk.lab.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,5 +14,6 @@ public class Order {
     private String pizzaSize;
     private String clientName;
     private String clientAddress;
+    @Id
     private Long orderId;
 }

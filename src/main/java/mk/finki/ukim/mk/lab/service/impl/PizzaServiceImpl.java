@@ -10,9 +10,16 @@ import java.util.List;
 
 @Service
 public class PizzaServiceImpl implements PizzaService {
-    @Listen
+    private PizzaRepository repo;
+
+    public PizzaServiceImpl(PizzaRepository repo){
+        this.repo = repo;
+    }
+
     @Override
     public List<Pizza> listPizzas() {
-        return PizzaRepository.pizzalist;
+        return repo.findAll();
     }
+
+
 }
