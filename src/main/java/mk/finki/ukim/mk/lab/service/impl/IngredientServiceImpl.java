@@ -43,7 +43,7 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public Page<Ingredient> listIngredients() {
 
-       Pageable page = PageRequest.of(0, 10, Sort.by("name").descending());
+       Pageable page = PageRequest.of(0, 10, Sort.by("name").ascending());
 
         return repo.findAll(page);
     }

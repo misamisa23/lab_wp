@@ -20,7 +20,7 @@
 >
     <h2>Choose pizza:</h2>
     <form action="/selectPizzaSize" method="POST">
-    <p th:each="entry: ${pizzas}"><input type="radio" th:name="pizza"  th:text="${entry.description}" th:value="${entry.name}"></p>
+    <p th:each="entry: ${pizzas}"><input type="radio" th:name="pizza"  th:text="${entry.name}" th:value="${entry.name}"></p>
     <br/>
         <input type="submit">
     </form>
