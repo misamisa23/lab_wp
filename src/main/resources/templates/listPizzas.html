@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Order page - Welcome and choose pizza</title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to our Pizza Delivery App</h1>
+</header>
+<main method="POST" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+    <h2>Choose pizza:</h2>
+    <form action="/selectPizzaSize" method="POST">
+    <p th:each="entry: ${pizzas}"><input type="radio" th:name="pizza"  th:text="${entry.description}" th:value="${entry.name}"></p>
+    <br/>
+        <input type="submit">
+    </form>
+</main>
+</body>
+</html>
